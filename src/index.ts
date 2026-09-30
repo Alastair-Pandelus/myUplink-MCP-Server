@@ -13,13 +13,16 @@
  *   MYUPLINK_REDIRECT_URI   – callback URL registered at dev.myuplink.com
  */
 
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import * as dotenv from "dotenv";
 import { MyUplinkClient } from "./myuplink-client.js";
 
-dotenv.config();
+const envPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env");
+dotenv.config({ path: envPath, quiet: true });
 
 // ─── Bootstrap ────────────────────────────────────────────────────────────────
 

@@ -2,6 +2,21 @@
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that connects Claude (or any MCP client) to your **NIBE myUplink** heat-pump account.
 
+Based on [kalmma/myUplink-MCP-Server](https://github.com/kalmma/myUplink-MCP-Server).
+
+## Credentials
+
+Do not upload credentials to GitHub, or put them in any file that gets committed.
+
+That includes the myUplink client id, client secret, access token, and refresh token.
+
+- Keep them only in a local `.env` file. `.env` is gitignored and must never be committed or pushed.
+- `.env.example` lists the variable names with empty values. Copy it to `.env` and fill it in on your own machine.
+- Do not paste secrets into `mcp.json` when that file is committed, into issues, into pull requests, or into this README.
+- Before every push, check `git status`. `.env` must not appear as a staged or untracked file that you then add.
+
+The server loads `.env` from the project directory itself, so a client does not need the secret embedded in its own config.
+
 ## Features
 
 | Tool | What it does |
